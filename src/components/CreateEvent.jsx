@@ -1,36 +1,43 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-
-
+import { useUser } from "@clerk/clerk-react";
 
 const CreateEvent = () => {
+    const { user } = useUser();
+    const userId = user?.id;
+
     const initialUserState = {
-        eventname: "", eventdate: "", eventcity: "", state: "", country: "", orgernisername: "", organiserphone: "", description: "", image: "",
+        eventName: "", eventDate: "", venueCity: "", venueState: "", venueCountry: "", organizerName: "", organizerPhone: "", description: "", eventImage: null,
     };
-    const [user, setUser] = useState(initialUserState);
+    const [eventData, setEventData] = useState(initialUserState);
     let name, value;
     const handleInputs = (e) => {
         console.log(e);
         name = e.target.name;
-        value = e.target.value;
+        value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
 
-        setUser({ ...user, [name]: value });
+        setEventData({ ...eventData, [name]: value });
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/events', {
+            const formData = new FormData();
+            formData.append('event', JSON.stringify(eventData));
+            formData.append('eventImage', eventData.eventImage);
+            formData.append('userId', userId);
+            console.log('FormData:', formData);
+            const response = await fetch('http://localhost:8080/api/events', {
                 method: 'POST',
+                body: formData,
                 headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
+                    'Content-Type': 'multipart/form-data'
+                }
             });
             if (response.ok) {
                 console.log('Event created successfully');
                 // Optionally, you can clear the form after submission
-                setUser(initialUserState);
+                setEventData(initialUserState);
             } else {
                 console.error('Failed to create event');
             }
@@ -91,7 +98,7 @@ const CreateEvent = () => {
                     <input type='tel' id="organizerphone" placeholder='Organizer phone' name='organiserphone' value={user.organiserphone} onChange={handleInputs} />
                     <input type='text' id="description" placeholder='Description' name='description' value={user.description} onChange={handleInputs} />
                     <input type="file" id="img" name="image" accept="image/*" value={user.image} onChange={handleInputs} />
-                    <label for="img"><i className="fa-solid fa-upload"></i>Upload image</label>
+                    <label htmlFor="img"><i className="fa-solid fa-upload"></i>Upload image</label>
                 </div>
                 <div className='formsubmit'>
                     <button className='btn1' type='submit'>Submit</button>
