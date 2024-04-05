@@ -1,12 +1,11 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { ClerkProvider } from '@clerk/clerk-react';
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
-
-if (!PUBLISHABLE_KEY) {
+const REST_API_KEY = import.meta.env.SPRINGBOOT_REST_API_KEY;
+if (!PUBLISHABLE_KEY && !REST_API_KEY) {
   throw new Error("Missing Publishable Key")
 }
 

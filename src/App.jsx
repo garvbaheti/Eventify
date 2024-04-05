@@ -25,7 +25,8 @@ const App = () => {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/allevents" element={<EventListPage />} />
           <Route path="/event/:eventId" element={<SingleEventPage />} />
-
+          <Route path="/edit/:eventId" element={<EventCreation />} />
+          
           {isSignedIn ? (
             <Route path="/createevent" element={<EventCreation />} />
           ) : (
@@ -33,9 +34,6 @@ const App = () => {
           )
 
           }
-
-
-
 
         </Routes>
 

@@ -26,7 +26,7 @@ const Contact = () => {
                     <span className='mt-10 text-md font-bold text-left text-black max-w-4xl'>
                         Garv Baheti{" "}
                     </span>
-                    : rahuljyotimishra2002@gmail.com
+                    : garvbaheti@gmail.com
 
                 </p>
                 <p className="mt-10 text-md text-left text-neutral-500 max-w-4xl">

@@ -6,7 +6,7 @@ const Workflow = () => {
   return (
     <div className="mt-10 px-8">
       <h2 className="text-3xl sm:text-5xl lg:text-5xl text-center mt-3 mb-5 tracking-wide">
-        4 Easy Steps to{" "}
+        Easy Steps to{" "}
         <span className="bg-gradient-to-r from-blue-500 to-sky-800 text-transparent bg-clip-text">
           Eventify.
         </span>

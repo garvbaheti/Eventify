@@ -17,12 +17,7 @@ export const navItems = [
 
 
 export const features = [
-  {
-    icon: <Bell />,
-    text: "Real Time Notification",
-    description:
-      "Instantly stay informed with live updates on event registrations, ensuring you never miss a beat. Seamless, real-time notifications, guaranteed",
-  },
+
   {
     icon: <SquarePen />,
     text: "Easy Event Creation",
@@ -31,9 +26,9 @@ export const features = [
   },
   {
     icon: <Ticket />,
-    text: "Seamless user Invitation",
+    text: "Seamless Register for event",
     description:
-      "Effortlessly invite guests with our seamless user invitation feature. Simplify event outreach and connect with your audience effortlessly",
+      "Effortlessly register for any event. Simplify event outreach and connect with your audience effortlessly",
   },
   {
     icon: <GlobeLock />,
@@ -41,18 +36,7 @@ export const features = [
     description:
       "Customize event privacy effortlessly. Tailor your event's visibility to suit your needs with our flexible privacy options",
   },
-  {
-    icon: <Users />,
-    text: "Easy Attendee management",
-    description:
-      "Simplify attendee management effortlessly. Seamlessly handle your event's participants with our easy attendee management feature",
-  },
-  {
-    icon: <Download />,
-    text: "Download Attendee List",
-    description:
-      "Easily download attendee lists with a simple click. Access comprehensive attendee data effortlessly with our download attendee list feature",
-  },
+
 ];
 
 export const checklistItems = [
@@ -67,14 +51,9 @@ export const checklistItems = [
       "By this the user can give necessary details of the event.",
   },
   {
-    title: "Accept or Reject Invitations",
+    title: "Register for Event",
     description:
-      "Sometimes you dont want some people to join your party, Eventify will help you to accept or reject invitations.",
-  },
-  {
-    title: "Download attendee list and send emails",
-    description:
-      "Eventify also provides a list of all attendees and also send personalized mail to everyone.",
+      "Eventify also provides a options for attendees to register",
   },
 ];
 
@@ -97,7 +76,7 @@ export const pricingOptions = [
   },
   {
     title: "",
-    image: user1,
+    image: user3,
     name: "Anurudh Gupta",
     features: [
 
@@ -105,7 +84,7 @@ export const pricingOptions = [
   },
   {
     title: "Enterprise",
-    image: user1,
+    image: user4,
     name: "Garv Baheti",
     features: [
 
